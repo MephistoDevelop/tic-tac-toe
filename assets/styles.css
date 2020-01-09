@@ -18,10 +18,9 @@ body {
 
 .grid-container {
   display: grid;
-  grid-template-rows: 120px 120px 120px ;
+  grid-template-rows: 120px 120px 120px;
   grid-template-columns: 120px 120px 120px;
 }
-
 
 .box {
   display: flex;
@@ -29,8 +28,9 @@ body {
   justify-content: center;
   border: 2px solid rgb(143, 141, 141);
   background-color: black;
-  color: white;
- 
+  color: red;
+  font-weight: bolder;
+  font-size: 100px;
 }
 
 #reset-btn {
@@ -42,11 +42,9 @@ body {
   margin: 10px;
 }
 
-
 .head-text {
   font-size: 16px;
 }
-
 
 /* animational background style */
 
@@ -66,7 +64,7 @@ body {
   list-style: none;
   widows: 25px;
   height: 25px;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255, 255, 255, 0.3);
   animation: animate 20s linear infinite;
   bottom: -150px;
 }
@@ -118,31 +116,26 @@ body {
 }
 
 @keyframes animate {
-  0%{
-      transform: translateY(0) rotate(0deg);
-      opacity: 1;
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
   }
 
-  100%{
-      transform: translateY(-800px) rotate(360deg);
-      opacity: 0;
+  100% {
+    transform: translateY(-800px) rotate(360deg);
+    opacity: 0;
   }
 }
-
-
-
-
 
 /* Media querie for 768 and max screens */
 
 @media only screen and (min-width: 768px) {
-
   .grid-container {
-      grid-template-rows: 200px 200px 200px;
-      grid-template-columns: 200px 200px 200px;
+    grid-template-rows: 200px 200px 200px;
+    grid-template-columns: 200px 200px 200px;
   }
 
   .head-text {
-      font-size: 25px;
+    font-size: 25px;
   }
 }

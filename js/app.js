@@ -25,8 +25,8 @@ function game(clickBox) {
   clickBox.onclick = '';
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
-  counter++;
   console.log(board);
+  counter++;
   winning(board, options[turn]);
 }
 

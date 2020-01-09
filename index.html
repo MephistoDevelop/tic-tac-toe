@@ -36,15 +36,16 @@
     </div>
     <h1 class="head-text">Tic-Tac-Toe</h1>
     <form id="form">
-      <input id="player-1" type="text" placeholder="Player 1">
-      <input id="player-2" type="text" placeholder="Player 2">
-      <input type="button" onclick="giveName();"  id="btn-play" value="play">
+      <input id="player-1" type="text" placeholder="Player 1" />
+      <input id="player-2" type="text" placeholder="Player 2" />
+      <input type="button" onclick="giveName();" id="btn-play" value="play" />
     </form>
     <h2 id="messages">Message</h2>
 
     <div class="container">
       <div class="grid-container" id="board"></div>
       <br />
+      <button onclick="resetGame()">Reset</button>
     </div>
     <script src="js/app.js"></script>
   </body>

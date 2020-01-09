@@ -21,31 +21,31 @@ let counter = 0;
 drawBoard();
 
 function giveName() {
-  player1 = document.getElementById("player-1");
-  player2 = document.getElementById("player-2");
-  if (player1.value == "") {
-      player[0] = "Player1"
+  player1 = document.getElementById('player-1');
+  player2 = document.getElementById('player-2');
+  if (player1.value == '') {
+    player[0] = 'Player1';
+  } else {
+    player[0] = player1.value;
   }
-  else {player[0] = player1.value;}
 
-  if (player2.value == "") {
-      player[1] = "Player2"
+  if (player2.value == '') {
+    player[1] = 'Player2';
+  } else {
+    player[1] = player2.value;
   }
-  
- else{ player[1] = player2.value;}
   scatchBoard();
-  document.getElementById("board").classList.remove("hide");
+  document.getElementById('board').classList.remove('hide');
   // document.getElementById("form").className="hide";
 }
 
-function drawBoard(){
-  var board = document.getElementById("board");
-  var display = "";
-  for (var i=0; i < 9; i++) {
-    display += '<div id ="'+i+'" onclick="game(this);" class="box"></div>';
-}
-board.innerHTML = display;
-
+function drawBoard() {
+  var board = document.getElementById('board');
+  var display = '';
+  for (var i = 0; i < 9; i++) {
+    display += '<div id ="' + i + '" onclick="game(this);" class="box"></div>';
+  }
+  board.innerHTML = display;
 }
 
 function game(clickBox) {
@@ -53,6 +53,7 @@ function game(clickBox) {
   switchTurn();
 
   clickBox.onclick = '';
+  clickBox.addEventListener('click', null);
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
   console.log(board);
@@ -82,17 +83,16 @@ function winning(board, sign) {
 }
 function resetGame() {
   board = {};
-  let boxs = document.getElementsByClassName('box');
-  for (let i = 0; i < boxs.length; i++) {
-    boxs[i].innerText = '';
-    boxs[i].addEventListener('click', function() {
-      game(this);
-    });
-    turn = 0;
-    counter = 0;
-    winner = false;
-    document.getElementById('messages').innerText = player[turn] + "'s turn";
+  let boxes = document.getElementById('board');
+  while (boxes.firstChild) {
+    boxes.removeChild(boxes.firstChild);
   }
+
+  turn = 0;
+  counter = 0;
+  winner = false;
+  document.getElementById('messages').innerText = player[turn] + "'s turn";
+  drawBoard();
 }
 function switchTurn() {
   if (turn === 0) turn = 1;

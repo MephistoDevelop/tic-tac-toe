@@ -18,6 +18,36 @@ let options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
 
+drawBoard();
+
+function giveName() {
+  player1 = document.getElementById("player-1");
+  player2 = document.getElementById("player-2");
+  if (player1.value == "") {
+      player[0] = "Player1"
+  }
+  else {player[0] = player1.value;}
+
+  if (player2.value == "") {
+      player[1] = "Player2"
+  }
+  
+ else{ player[1] = player2.value;}
+  scatchBoard();
+  document.getElementById("board").classList.remove("hide");
+  // document.getElementById("form").className="hide";
+}
+
+function drawBoard(){
+  var board = document.getElementById("board");
+  var display = "";
+  for (var i=0; i < 9; i++) {
+    display += '<div id ="'+i+'" onclick="game(this);" class="box"></div>';
+}
+board.innerHTML = display;
+
+}
+
 function game(clickBox) {
   clickBox.innerText = options[turn];
   switchTurn();

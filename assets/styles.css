@@ -16,6 +16,10 @@ body {
   font-size: 30px;
 }
 
+.hide {
+  display: none;
+}
+
 .grid-container {
   display: grid;
   grid-template-rows: 120px 120px 120px;

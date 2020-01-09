@@ -18,6 +18,18 @@ let options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
 
+drawBoard();
+
+function drawBoard(){
+  var board = document.getElementById("board");
+  var display = "";
+  for (var i=0; i < 9; i++) {
+    display += '<div id ="'+i+'" onclick="game(this);" class="box"></div>';
+}
+board.innerHTML = display;
+
+}
+
 function game(clickBox) {
   clickBox.innerText = options[turn];
   switchTurn();

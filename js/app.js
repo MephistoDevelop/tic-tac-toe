@@ -1,4 +1,3 @@
-//basic variables
 let board = {};
 let player = [];
 player[0] = 'Player1';
@@ -34,7 +33,6 @@ function giveName() {
  drawBoard();
 
   document.getElementById("container").classList.remove("hide");
-  // document.getElementById("form").className="hide";
 }
 
 function drawBoard(){
@@ -51,13 +49,11 @@ function game(clickBox) {
   clickBox.innerText = options[turn];
 
   if (winner != true) {switchTurn();}
-  console.log(winner);
   clickBox.onclick = '';
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
   counter++;
   winning(board, options[turn]);
-
 
 
 }
@@ -72,6 +68,11 @@ function winning(board, sign) {
       document.getElementById('messages').innerText = player[turn] + "'s win";
       
       winner = true;
+      elem = document.getElementsByClassName("box")
+      for(let i=0; i<elem.length; i++) {
+        elem[i].onclick="";
+      }
+     
     }
 
   });
@@ -87,13 +88,11 @@ function switchTurn() {
   if (turn === 0) turn = 1;
   else turn = 0;
 
-
-  
 }
 
 function checkDraw() {
   if (counter === 9 && winner === false) {
     document.getElementById('messages').innerText = "Draw Game";
-    winner = true;
+    winner = false;
   }
 }

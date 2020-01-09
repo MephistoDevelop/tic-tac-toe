@@ -10,10 +10,11 @@ body {
 }
 
 #container {
-  display: block;
-
+  display: flex;
+  justify-content: center;
   z-index: 9999;
   font-size: 30px;
+  
 }
 
 .hide {

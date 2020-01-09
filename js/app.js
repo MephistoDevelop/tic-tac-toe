@@ -13,12 +13,10 @@ let win = [
   [1, 5, 9],
   [3, 5, 7],
 ];
-let winner = false;
+let winner;
 let options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
-
-drawBoard();
 
 function giveName() {
   player1 = document.getElementById("player-1");
@@ -33,8 +31,9 @@ function giveName() {
   }
   
  else{ player[1] = player2.value;}
-  scatchBoard();
-  document.getElementById("board").classList.remove("hide");
+ drawBoard();
+
+  document.getElementById("container").classList.remove("hide");
   // document.getElementById("form").className="hide";
 }
 
@@ -50,59 +49,51 @@ board.innerHTML = display;
 
 function game(clickBox) {
   clickBox.innerText = options[turn];
-  switchTurn();
 
+  if (winner != true) {switchTurn();}
+  console.log(winner);
   clickBox.onclick = '';
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
-  console.log(board);
   counter++;
   winning(board, options[turn]);
+
+
+
 }
 
 function winning(board, sign) {
   win.forEach(function(element) {
-    /* console.log(
-      `${board[element[0] - 1] === sign} == ${sign} && ${board[
-        element[1] - 1
-      ] === sign} == ${sign} && ${board[element[2] - 1]} === ${sign}`
-    );*/
     if (
       board[element[0] - 1] === sign &&
       board[element[1] - 1] === sign &&
       board[element[2] - 1] === sign
     ) {
-      alert(`Player ${sign} Wins !! - ${element}`);
+      document.getElementById('messages').innerText = player[turn] + "'s win";
+      
       winner = true;
-      resetGame();
     }
-    // console.log(element);
+
   });
   checkDraw();
 }
 function resetGame() {
   board = {};
-  let boxs = document.getElementsByClassName('box');
-  for (let i = 0; i < boxs.length; i++) {
-    boxs[i].innerText = '';
-    boxs[i].addEventListener('click', function() {
-      game(this);
-    });
-    turn = 0;
-    counter = 0;
-    winner = false;
-    document.getElementById('messages').innerText = player[turn] + "'s turn";
-  }
+  winner = false;
+  document.getElementById("messages").innerText = "";
+  drawBoard();
 }
 function switchTurn() {
   if (turn === 0) turn = 1;
   else turn = 0;
+
+
+  
 }
 
 function checkDraw() {
-  console.log(`Yo soy board: ${counter}`);
   if (counter === 9 && winner === false) {
-    alert('draw game');
-    resetGame();
+    document.getElementById('messages').innerText = "Draw Game";
+    winner = true;
   }
 }

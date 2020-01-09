@@ -9,9 +9,9 @@ body {
   user-select: none;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
+#container {
+  display: block;
+
   z-index: 9999;
   font-size: 30px;
 }

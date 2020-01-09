@@ -23,7 +23,7 @@
     <meta name="twitter:creator" content="@MephistoDevelop" />
     <link type="text/css" href="assets/styles.css" rel="stylesheet" />
   </head>
-  <body>
+  <body onload= "resetGame();">
     <div class="animation-area">
       <ul class="elems">
         <li></li>
@@ -42,10 +42,18 @@
     </form>
     <h2 id="messages">Message</h2>
 
-    <div class="container">
-      <div class="grid-container" id="board"></div>
+    <div id="container" class="hide">
+      <div class="grid-container" id="board">
+  
+      </div>
+
+       
+      <button class= "reset" onclick="resetGame();">Reset</button>
       <br />
+
     </div>
+
+    
     <script src="js/app.js"></script>
   </body>
 </html>

@@ -16,6 +16,17 @@ let win = [
 let options = ['X', 'O'];
 let turn = 0;
 
+drawBoard();
+
+function drawBoard(){
+  var board = document.getElementById("board");
+  var display = "";
+  for (var i=0; i < 9; i++) {
+    display += '<div id ="'+i+'" onclick="game(this);" class="box"></div>';
+}
+board.innerHTML = display;
+
+}
 function game(clickBox) {
   clickBox.innerText = options[turn];
   switchTurn();
@@ -23,17 +34,11 @@ function game(clickBox) {
   clickBox.onclick = '';
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
-  console.log(board);
   winning(board, options[turn]);
 }
 
 function winning(board, sign) {
   win.forEach(function(element) {
-    /* console.log(
-      `${board[element[0] - 1] === sign} == ${sign} && ${board[
-        element[1] - 1
-      ] === sign} == ${sign} && ${board[element[2] - 1]} === ${sign}`
-    );*/
     if (
       board[element[0] - 1] === sign &&
       board[element[1] - 1] === sign &&

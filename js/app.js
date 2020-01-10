@@ -33,7 +33,7 @@ function giveName() {
  drawBoard();
 
   document.getElementById("container").classList.remove("hide");
-  document.getElementById("reset").classList.remove("hide");
+  document.getElementById("buttons").classList.remove("hide");
 }
 
 function drawBoard(){
@@ -55,8 +55,10 @@ function game(clickBox) {
   board[clickBox.id] = options[turn];
   counter++;
   winning(board, options[turn]);
+}
 
-
+function refresh() {
+  location.reload();
 }
 
 function winning(board, sign) {

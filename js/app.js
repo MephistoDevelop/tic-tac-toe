@@ -2,7 +2,7 @@ let board = {};
 let player = [];
 player[0] = 'Player1';
 player[1] = 'Player2';
-let win = [
+const win = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
@@ -13,7 +13,7 @@ let win = [
   [3, 5, 7],
 ];
 let winner;
-let options = ['X', 'O'];
+const options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
 

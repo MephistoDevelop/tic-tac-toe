@@ -18,18 +18,18 @@ let turn = 0;
 let counter = 0;
 
 function giveName() {
-  player1 = document.getElementById("player-1");
-  player2 = document.getElementById("player-2");
-  if (player1.value == "") {
-      player[0] = "Player1"
+  player1 = document.getElementById('player-1');
+  player2 = document.getElementById('player-2');
+  if (player1.value == '') {
+    player[0] = 'Player1';
+  } else {
+    player[0] = player1.value;
   }
-  else {player[0] = player1.value;}
 
-  if (player2.value == "") {
-      player[1] = "Player2"
-  }
-  
- else{ player[1] = player2.value;}
+  if (player2.value == '') {
+    player[1] = 'Player2';
+  } 
+  else {player[1] = player2.value;}
  drawBoard();
 
   document.getElementById("board").classList.remove("hide");
@@ -37,14 +37,13 @@ function giveName() {
   document.getElementById("form").classList.add("hide");
 }
 
-function drawBoard(){
-  var board = document.getElementById("board");
-  var display = "";
-  for (var i=0; i < 9; i++) {
-    display += '<div id ="'+i+'" onclick="game(this);" class="box"></div>';
-}
-board.innerHTML = display;
-
+function drawBoard() {
+  var board = document.getElementById('board');
+  var display = '';
+  for (var i = 0; i < 9; i++) {
+    display += '<div id ="' + i + '" onclick="game(this);" class="box"></div>';
+  }
+  board.innerHTML = display;
 }
 
 function game(clickBox) {
@@ -52,6 +51,7 @@ function game(clickBox) {
 
   if (winner != true) {switchTurn();}
   clickBox.onclick = '';
+  clickBox.addEventListener('click', null);
   document.getElementById('messages').innerText = player[turn] + "'s turn";
   board[clickBox.id] = options[turn];
   counter++;

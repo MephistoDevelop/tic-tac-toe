@@ -50,12 +50,13 @@ function drawBoard() {
 
 function game(clickBox) {
   clickBox.innerText = options[turn];
+  board[clickBox.id] = options[turn];
   switchTurn();
 
   clickBox.onclick = '';
   clickBox.addEventListener('click', null);
   document.getElementById('messages').innerText = player[turn] + "'s turn";
-  board[clickBox.id] = options[turn];
+
   console.log(board);
   counter++;
   winning(board, options[turn]);

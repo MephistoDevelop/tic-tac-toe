@@ -33,6 +33,7 @@ function giveName() {
  drawBoard();
 
   document.getElementById("container").classList.remove("hide");
+  document.getElementById("reset").classList.remove("hide");
 }
 
 function drawBoard(){

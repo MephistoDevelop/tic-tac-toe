@@ -32,8 +32,9 @@ function giveName() {
  else{ player[1] = player2.value;}
  drawBoard();
 
-  document.getElementById("container").classList.remove("hide");
+  document.getElementById("board").classList.remove("hide");
   document.getElementById("buttons").classList.remove("hide");
+  document.getElementById("form").classList.add("hide");
 }
 
 function drawBoard(){

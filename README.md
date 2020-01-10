@@ -14,7 +14,7 @@ Javascript project from The Odin Project [curriculum]()
 
 ## Live Demo
 
-[Live Demo Link]()
+[Live Demo Link](https://mephistodevelop.github.io/tic-tac-toe/)
 
 ## Getting Started
 

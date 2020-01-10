@@ -18,16 +18,16 @@ let turn = 0;
 let counter = 0;
 
 function drawBoard() {
-  var board = document.getElementById('board');
-  var display = '';
-  for (var i = 0; i < 9; i++) {
-    display += '<div id ="' + i + '" onclick="game(this);" class="box"></div>';
+  let board = document.getElementById('board');
+  let display = '';
+  for (let i = 0; i < 9; i++) {
+    display += `<div id =" ${i}" onclick="game(this);" class="box"></div>`;
   }
   board.innerHTML = display;
 }
 function giveName() {
-  player1 = document.getElementById('player-1');
-  player2 = document.getElementById('player-2');
+  let player1 = document.getElementById('player-1');
+  let player2 = document.getElementById('player-2');
   if (player1.value === '') {
     player[0] = 'Player1';
   } else {
@@ -86,8 +86,8 @@ function winning(board, sign) {
       document.getElementById('messages').innerText = player[turn] + "'s win";
 
       winner = true;
-      let elem = document.getElementsByClassName('box');
-      for (let i = 0; i < elem.length; i++) {
+      const elem = document.getElementsByClassName('box');
+      for (let i = 0; i < elem.length; i += 1) {
         elem[i].onclick = '';
       }
     }

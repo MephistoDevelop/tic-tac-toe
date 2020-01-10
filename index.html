@@ -15,7 +15,6 @@
       content="https://lh3.googleusercontent.com/d/186R5bGkabiuuQ_ZOjz37KQv9lK7Wg9UK=s220?authuser=0"
     />
     <meta property="og:url" content="" />
-
     <meta name="twitter:card" content="summary" />
     <meta name="twitter:site" content="@MephistoDevelop" />
     <meta name="twitter:site" content="@ansaryergesh " />
@@ -23,7 +22,7 @@
     <meta name="twitter:creator" content="@MephistoDevelop" />
     <link type="text/css" href="assets/style.css" rel="stylesheet" />
   </head>
-  <body onload= "resetGame();">
+  <body onload="resetGame();">
     <div class="animation-area">
       <ul class="elems">
         <li></li>
@@ -36,23 +35,21 @@
     </div>
     <h1 class="head-text">Tic-Tac-Toe</h1>
     <form id="form">
-      <input id="player-1" type="text" placeholder="Player 1" />
-      <input id="player-2" type="text" placeholder="Player 2" />
+      <div>
+        <input id="player-1" type="text" placeholder="Player 1" />
+        <input id="player-2" type="text" placeholder="Player 2" />
+      </div>
       <input type="button" onclick="giveName();" id="btn-play" value="play" />
     </form>
     <h2 id="messages">Message</h2>
-
     <div class="container">
-      <div class="grid-container hide" id="board">
-      </div>
-      <br>
-   
-  </div>
-    <div id = "buttons" class="hide">
-      <button id= "button" onclick="resetGame();">Play Again</button>
+      <div class="grid-container hide" id="board"></div>
+      <br />
+    </div>
+    <div id="buttons" class="hide">
+      <button id="button" onclick="resetGame();">Play Again</button>
       <button id="button" onclick="refresh();">New Game</button>
-  </div>
-
+    </div>
     <script src="js/app.js"></script>
   </body>
 </html>

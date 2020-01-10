@@ -18,16 +18,16 @@ let turn = 0;
 let counter = 0;
 
 function drawBoard() {
-  let board = document.getElementById('board');
+  const board = document.getElementById('board');
   let display = '';
-  for (let i = 0; i < 9; i++) {
+  for (let i = 0; i < 9; i += 1) {
     display += `<div id =" ${i}" onclick="game(this);" class="box"></div>`;
   }
   board.innerHTML = display;
 }
 function giveName() {
-  let player1 = document.getElementById('player-1');
-  let player2 = document.getElementById('player-2');
+  const player1 = document.getElementById('player-1');
+  const player2 = document.getElementById('player-2');
   if (player1.value === '') {
     player[0] = 'Player1';
   } else {

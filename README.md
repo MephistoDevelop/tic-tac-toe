@@ -1,8 +1,8 @@
-# Library Project
+# Tic Tac Toe Game Project
 
 > Project taked from Microverse Curriculum from the The Odin Page project site.
 
-![screenshot](./f)
+![screenshot](./assets/images/screenshot.gif)
 
 Javascript project from The Odin Project [curriculum]()
 

@@ -43,6 +43,9 @@ body {
   margin-top: 10px;
 }
 #btn-play:hover {
+  color: whitesmoke;
+  background-color: rgba(167, 156, 6, 0.4);
+  border: 2px solid rgba(167, 156, 6, 1);
 }
 #button {
   text-align: center;

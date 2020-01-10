@@ -17,6 +17,14 @@ let options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
 
+function drawBoard() {
+  var board = document.getElementById('board');
+  var display = '';
+  for (var i = 0; i < 9; i++) {
+    display += '<div id ="' + i + '" onclick="game(this);" class="box"></div>';
+  }
+  board.innerHTML = display;
+}
 function giveName() {
   player1 = document.getElementById('player-1');
   player2 = document.getElementById('player-2');
@@ -36,15 +44,6 @@ function giveName() {
   document.getElementById('board').classList.remove('hide');
   document.getElementById('buttons').classList.remove('hide');
   document.getElementById('form').classList.add('hide');
-}
-
-function drawBoard() {
-  var board = document.getElementById('board');
-  var display = '';
-  for (var i = 0; i < 9; i++) {
-    display += '<div id ="' + i + '" onclick="game(this);" class="box"></div>';
-  }
-  board.innerHTML = display;
 }
 
 function game(clickBox) {

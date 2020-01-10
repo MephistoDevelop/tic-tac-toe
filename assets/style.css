@@ -31,6 +31,8 @@ body {
   color: white;
   font-size: 85px;
   font-weight: bolder;
+  border-radius: 30px;
+  border: none;
 }
 
 #button {

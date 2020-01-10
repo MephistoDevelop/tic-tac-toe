@@ -28,13 +28,14 @@ function giveName() {
 
   if (player2.value == '') {
     player[1] = 'Player2';
-  } 
-  else {player[1] = player2.value;}
- drawBoard();
+  } else {
+    player[1] = player2.value;
+  }
+  drawBoard();
 
-  document.getElementById("board").classList.remove("hide");
-  document.getElementById("buttons").classList.remove("hide");
-  document.getElementById("form").classList.add("hide");
+  document.getElementById('board').classList.remove('hide');
+  document.getElementById('buttons').classList.remove('hide');
+  document.getElementById('form').classList.add('hide');
 }
 
 function drawBoard() {
@@ -49,7 +50,9 @@ function drawBoard() {
 function game(clickBox) {
   clickBox.innerText = options[turn];
 
-  if (winner != true) {switchTurn();}
+  if (winner != true) {
+    switchTurn();
+  }
   clickBox.onclick = '';
   clickBox.addEventListener('click', null);
   document.getElementById('messages').innerText = player[turn] + "'s turn";
@@ -70,33 +73,30 @@ function winning(board, sign) {
       board[element[2] - 1] === sign
     ) {
       document.getElementById('messages').innerText = player[turn] + "'s win";
-      
-      winner = true;
-      elem = document.getElementsByClassName("box")
-      for(let i=0; i<elem.length; i++) {
-        elem[i].onclick="";
-      }
-     
-    }
 
+      winner = true;
+      elem = document.getElementsByClassName('box');
+      for (let i = 0; i < elem.length; i++) {
+        elem[i].onclick = '';
+      }
+    }
   });
   checkDraw();
 }
 function resetGame() {
   board = {};
   winner = false;
-  document.getElementById("messages").innerText = "";
+  document.getElementById('messages').innerText = '';
   drawBoard();
 }
 function switchTurn() {
   if (turn === 0) turn = 1;
   else turn = 0;
-
 }
 
 function checkDraw() {
   if (counter === 9 && winner === false) {
-    document.getElementById('messages').innerText = "Draw Game";
+    document.getElementById('messages').innerText = 'Draw Game';
     winner = false;
   }
 }

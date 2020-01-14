@@ -55,6 +55,7 @@ function checkDraw() {
   if (counter === 9 && winner === false) {
     document.getElementById('messages').innerText = 'Draw Game';
     winner = false;
+    alert('Draw Game !!');
     resetGame();
   }
 }
@@ -89,9 +90,8 @@ function winning(Board, sign) {
       for (let i = 0; i < elem.length; i += 1) {
         elem[i].onclick = '';
       }
-      const message = document.getElementById('messages');
+      alert(`Player ${sign} Wins !!`);
       resetGame();
-      console.log('You winnn !!');
     } else {
       winner = false;
       checkDraw();
@@ -101,13 +101,11 @@ function winning(Board, sign) {
 }
 
 function resetGame() {
-  messages.id = 'messages';
   board = {};
   winner = false;
-  console.log('reseted');
-  drawBoard();
   counter = 0;
-  turn = 0;
+  turn = 1;
+  drawBoard();
 }
 
 document.getElementById('btn-play').addEventListener('click', giveName);

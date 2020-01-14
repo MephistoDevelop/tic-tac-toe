@@ -18,12 +18,12 @@ let turn = 0;
 let counter = 0;
 
 function drawBoard() {
-  const board = document.getElementById('board');
+  const Board = document.getElementById('board');
   let display = '';
   for (let i = 1; i < 10; i += 1) {
-    display += `<div id =" ${i}" onclick="game(this);" class="box"></div>`;
+    display += `<div id ="${i}" onclick="game(this);" class="box"></div>`;
   }
-  board.innerHTML = display;
+  Board.innerHTML = display;
 }
 function giveName() {
   const player1 = document.getElementById('player-1');
@@ -55,58 +55,62 @@ function checkDraw() {
   if (counter === 9 && winner === false) {
     document.getElementById('messages').innerText = 'Draw Game';
     winner = false;
+    resetGame();
   }
 }
 
 function game(clickBox) {
   clickBox.innerText = options[turn];
-
-  if (winner !== true) {
-    switchTurn();
-  }
   clickBox.onclick = '';
   clickBox.addEventListener('click', null);
-  document.getElementById('messages').innerText = player[turn] + "'s turn";
+
   board[clickBox.id] = options[turn];
   counter += 1;
   winning(board, options[turn]);
+  if (winner !== true) {
+    switchTurn();
+  }
+  document.getElementById('messages').innerText = player[turn] + "'s turn";
 }
 
 function refresh() {
   location.reload();
 }
 
-function winning(board, sign) {
+function winning(Board, sign) {
   win.forEach(function(element) {
     if (
       board[element[0]] === sign &&
       board[element[1]] === sign &&
       board[element[2]] === sign
     ) {
-      document.getElementById('messages').innerText = player[turn] + "'s win";
       winner = true;
       const elem = document.getElementsByClassName('box');
       for (let i = 0; i < elem.length; i += 1) {
         elem[i].onclick = '';
       }
-    }
-    else {
+      const message = document.getElementById('messages');
+      resetGame();
+      console.log('You winnn !!');
+    } else {
       winner = false;
+      checkDraw();
     }
   });
   checkDraw();
 }
 
 function resetGame() {
+  messages.id = 'messages';
   board = {};
   winner = false;
-  document.getElementById('messages').innerText = '';
+  console.log('reseted');
   drawBoard();
   counter = 0;
   turn = 0;
 }
 
-document.getElementById("btn-play").addEventListener("click",giveName);
-document.getElementById("button1").addEventListener("click", resetGame);
-document.getElementById("button2").addEventListener("click",refresh);
-document.getElementById("body").addEventListener("load", resetGame);
+document.getElementById('btn-play').addEventListener('click', giveName);
+document.getElementById('button1').addEventListener('click', resetGame);
+document.getElementById('button2').addEventListener('click', refresh);
+document.getElementById('body').addEventListener('load', resetGame);

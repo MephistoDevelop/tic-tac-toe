@@ -90,7 +90,7 @@ function winning(Board, sign) {
       for (let i = 0; i < elem.length; i += 1) {
         elem[i].onclick = '';
       }
-      alert(`Player ${sign} Wins !!`);
+      alert(`Player ${player[turn]} Wins !!`);
       resetGame();
     } else {
       winner = false;

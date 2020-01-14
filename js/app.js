@@ -100,3 +100,8 @@ function resetGame() {
   document.getElementById('messages').innerText = '';
   drawBoard();
 }
+
+document.getElementById("btn-play").addEventListener("click",giveName);
+document.getElementById("button1").addEventListener("click", resetGame);
+document.getElementById("button2").addEventListener("click",refresh);
+document.getElementsByTagName("body").addEventListener("load", resetGame);

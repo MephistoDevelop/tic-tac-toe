@@ -20,7 +20,7 @@ let counter = 0;
 function drawBoard() {
   const board = document.getElementById('board');
   let display = '';
-  for (let i = 0; i < 9; i += 1) {
+  for (let i = 1; i < 10; i += 1) {
     display += `<div id =" ${i}" onclick="game(this);" class="box"></div>`;
   }
   board.innerHTML = display;
@@ -79,29 +79,34 @@ function refresh() {
 function winning(board, sign) {
   win.forEach(function(element) {
     if (
-      board[element[0] - 1] === sign &&
-      board[element[1] - 1] === sign &&
-      board[element[2] - 1] === sign
+      board[element[0]] === sign &&
+      board[element[1]] === sign &&
+      board[element[2]] === sign
     ) {
       document.getElementById('messages').innerText = player[turn] + "'s win";
-
       winner = true;
       const elem = document.getElementsByClassName('box');
       for (let i = 0; i < elem.length; i += 1) {
         elem[i].onclick = '';
       }
     }
+    else {
+      winner = false;
+    }
   });
   checkDraw();
 }
+
 function resetGame() {
   board = {};
   winner = false;
   document.getElementById('messages').innerText = '';
   drawBoard();
+  counter = 0;
+  turn = 0;
 }
 
 document.getElementById("btn-play").addEventListener("click",giveName);
 document.getElementById("button1").addEventListener("click", resetGame);
 document.getElementById("button2").addEventListener("click",refresh);
-document.getElementsByTagName("body").addEventListener("load", resetGame);
+document.getElementById("body").addEventListener("load", resetGame);

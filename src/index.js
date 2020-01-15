@@ -1,3 +1,6 @@
+import drawBoard from './board.js';
+
+drawBoard();
 let board = {};
 let player = [];
 player[0] = 'Player1';

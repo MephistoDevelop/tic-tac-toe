@@ -1,5 +1,7 @@
-//import drawBoard from './board.js';
-//drawBoard();
+import draw from './board.js';
+() => {
+  draw();
+};
 let board = {};
 let player = [];
 player[0] = 'Player1';
@@ -36,6 +38,7 @@ class Player {
       player[1] = player2.value;
     }
     Board.drawBoard();
+    draw();
 
     document.getElementById('board').classList.remove('hide');
     document.getElementById('buttons').classList.remove('hide');
@@ -150,6 +153,7 @@ document.getElementById('btn-play').addEventListener('click', function() {
 });
 document.getElementById('button1').addEventListener('click', function() {
   Game.resetGame();
+  drawBoard();
 });
 document.getElementById('button2').addEventListener('click', refresh);
 document.getElementById('body').addEventListener('load', function() {

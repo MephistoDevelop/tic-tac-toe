@@ -1,5 +1,5 @@
-function drawBoard() {
-  alert('im the imported file');
+function draw() {
+  console.log('im the imported file');
 }
 
-export { drawBoard };
+export default draw;

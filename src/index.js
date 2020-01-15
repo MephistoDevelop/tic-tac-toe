@@ -1,7 +1,3 @@
-import * as MyModule from './board.js ';
-
-MyModule.drawBoard();
-
 let board = {};
 let player = [];
 player[0] = 'Player1';

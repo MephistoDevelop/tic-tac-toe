@@ -16,6 +16,8 @@ let winner;
 const options = ['X', 'O'];
 let turn = 0;
 let counter = 0;
+let messageText;
+
 
 class Player {
     static giveName() {
@@ -89,8 +91,8 @@ class Board {
             for (let i = 0; i < elem.length; i += 1) {
               elem[i].onclick = '';
             }
-            alert(`Player ${player[turn]} Wins !!`);
-            Game.resetGame();
+            document.getElementById('messages').classList.add('hide');
+            document.getElementById('win-msg').innerText = player[turn] + " is winner!!!"
           } else {
             winner = false;
     
@@ -98,10 +100,9 @@ class Board {
         });
 
         if (counter === 9 && winner === false) {
-            document.getElementById('messages').innerText = 'Draw Game';
+            document.getElementById('messages').classList.add('hide');
             winner = false;
-            alert('Draw Game !!');
-            Game.resetGame();
+            document.getElementById('win-msg').innerText = 'Draw Game';
           }
     }
 
@@ -114,8 +115,10 @@ class Game {
         board = {};
         winner = false;
         counter = 0;
-        turn = 1;
+        turn = 0;
         Board.drawBoard();
+        document.getElementById('messages').classList.remove('hide');
+        document.getElementById('win-msg').innerText = '';
     }
 }
 
@@ -133,6 +136,7 @@ function game(clickBox) {
     }
     document.getElementById('messages').innerText = player[turn] + "'s turn";
 } 
+
 
 function refresh() {
     location.reload();

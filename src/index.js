@@ -1,6 +1,5 @@
-import drawBoard from './board.js';
-
-drawBoard();
+//import drawBoard from './board.js';
+//drawBoard();
 let board = {};
 let player = [];
 player[0] = 'Player1';
@@ -63,9 +62,17 @@ class Board {
     const Board = document.getElementById('board');
     let display = '';
     for (let i = 1; i < 10; i += 1) {
-      display += `<div id ="${i}" onclick="game(this);" class="box"></div>`;
+      display += `<div id ="${i}"  class="box game${i}"></div>`;
     }
+
     Board.innerHTML = display;
+
+    var boxs = document.getElementsByClassName('box');
+    for (let i = 0; i < boxs.length; i += 1) {
+      boxs[i].addEventListener('click', function() {
+        game(this);
+      });
+    }
   }
 
   static winning(Board, sign) {

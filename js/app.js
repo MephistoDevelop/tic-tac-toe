@@ -117,6 +117,7 @@ class Game {
         counter = 0;
         turn = 0;
         Board.drawBoard();
+        document.getElementById('messages').innerText = player[turn] + "'s turn";
         document.getElementById('messages').classList.remove('hide');
         document.getElementById('win-msg').innerText = '';
     }

@@ -16,6 +16,11 @@ Javascript project from The Odin Project [curriculum]()
 
 [Live Demo Link](https://mephistodevelop.github.io/tic-tac-toe/)
 
+## Future Features 
+
+- Add Computer Game
+- Scores from Users
+
 ## Getting Started
 
 -To start to use this proyect download this repository to your computer and descompress all the files, after open your terminal from the containing folder and open the index.html file on Google Chrome browser.
